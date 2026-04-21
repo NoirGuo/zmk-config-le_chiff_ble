@@ -59,6 +59,7 @@
         triggers-per-rotation = <20>;
 		sensors = <&center_encoder>;
 	};
+};
 
 	zephyr_udc0: &usbd {
     	compatible = "nordic,nrf-usbd";
