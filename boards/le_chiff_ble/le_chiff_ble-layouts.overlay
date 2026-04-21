@@ -5,7 +5,7 @@
         compatible = "zmk,physical-layout";
         display-name = "Layout";
         transform = <&default_transform>;
-        keys
+        keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0    0       0     0     0>
             , <&key_physical_attrs 100 100  100    0       0     0     0>
             , <&key_physical_attrs 100 100  200    0       0     0     0>
@@ -36,8 +36,6 @@
             , <&key_physical_attrs 100 100 1275  200       0     0     0>
             , <&key_physical_attrs 100 100 1375  200       0     0     0>
             , <&key_physical_attrs 100 100 1475  200       0     0     0>
-            , <&key_physical_attrs 100 100  650  300       0     0     0>
-            , <&key_physical_attrs 100 100  850  300       0     0     0>
             , <&key_physical_attrs 125 100  200  300       0     0     0>
             , <&key_physical_attrs 125 100  325  300       0     0     0>
             , <&key_physical_attrs 125 100  450  300       0     0     0>
