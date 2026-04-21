@@ -9,5 +9,6 @@ include:
     snippet: nrf52840-nosd studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: le_chiff_ble_nosd
-  - board: le_chiff_ble
+  - board: nrfmicro_13
+    shield: le_chiff_ble
     shield: settings_reset
