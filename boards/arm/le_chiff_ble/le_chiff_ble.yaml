@@ -1,14 +1,10 @@
 identifier: le_chiff_ble
 name: le_chiff_ble
-type: mcu
-arch: arm
-toolchain:
-  - zephyr
-  - gnuarmemb
-supported:
-  - adc
-  - usb_device
-  - ble
-  - ieee802154
-  - pwm
-  - watchdog
+type: shield
+url:
+requires:
+  - nrfmicro_13
+exposes:
+features:
+  - keys
+  - encoder
