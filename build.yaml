@@ -1,14 +1,14 @@
 include:
-  - board: nrfmicro_13
+  - board: nrfmicro/nrf52840/zmk
     shield: le_chiff_ble
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: le_chiff_ble
-  - board: nrfmicro_13
+  - board: nrfmicro/nrf52840/zmk
     shield: le_chiff_ble
     snippet: nrf52840-nosd studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: le_chiff_ble_nosd
-  - board: nrfmicro_13
-    shield: le_chiff_ble
+  - board: nrfmicro/nrf52840/zmk
     shield: settings_reset
+    artifact-name: le_chiff_ble_settings_reset
