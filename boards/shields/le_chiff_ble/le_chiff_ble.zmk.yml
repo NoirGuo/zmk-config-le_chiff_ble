@@ -1,0 +1,9 @@
+file_format: "1"
+id: le_chiff_ble
+name: le_chiff_ble
+type: shield
+url:
+requires: [pro_micro]
+features:
+  - keys
+  - encoder
