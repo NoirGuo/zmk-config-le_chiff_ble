@@ -49,15 +49,5 @@
         { "row": 3, "col": 8, "x":   7.5, "y": 1.5, "legend":    "静音", "w": 1.25 }
       ]
     }
-  },
-  "sensors": [
-    {
-      "ref": "center_encoder",
-      "name": "encoder_center",
-      "identifier": "encoder_center",
-      "compatible": "alps,ec11",
-      "label": "CENTER_ENCODER",
-      "enabled": true
-    }
-  ]
+  }
 }

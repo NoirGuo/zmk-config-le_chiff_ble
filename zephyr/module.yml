@@ -1,4 +1,4 @@
-name: "eyelash_nano"
 build:
+  cmake: .
   settings:
     board_root: .

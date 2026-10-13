@@ -1,0 +1,6 @@
+board:
+  name: le_chiff_ble
+  full_name: le_chiff_ble
+  vendor: eyelash
+  socs:
+    - name: nrf52840

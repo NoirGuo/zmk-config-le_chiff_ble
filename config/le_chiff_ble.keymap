@@ -135,13 +135,6 @@
             quick-tap-ms = <0>;
         };
 
-        scroll_encoder: scroll_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-
-            tap-ms = <100>;
-        };
     };
 
     keymap {
@@ -155,8 +148,6 @@
 &kp Z      &kp X      &kp C   &kp V   &kp B   &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH
 &mkp LCLK  &mkp RCLK  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6     &kp N9
             >;
-
-            sensor-bindings = <&scroll_encoder>;
         };
 
         layer_1 {
