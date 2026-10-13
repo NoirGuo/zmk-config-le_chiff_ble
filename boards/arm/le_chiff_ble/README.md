@@ -5,8 +5,8 @@
 
 ## Building Le_Chiff_BLE ZMK firmware
 ```
-west build -p -b le_chiff_ble -- -DSHIELD="nice_view_adapter nice_epaper"
+west build -p -b le_chiff_ble -- -DSHIELD="nice_view_adapter nice_view"
 ```
 
 更推荐在仓库根目录通过 GitHub Actions 构建（`build.yaml` 已配置
-`board: le_chiff_ble` + `shield: nice_view_adapter nice_epaper` + DYA Studio snippet）。
+`board: le_chiff_ble` + `shield: nice_view_adapter nice_view` + DYA Studio snippet）。

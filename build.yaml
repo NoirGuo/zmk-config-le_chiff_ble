@@ -14,7 +14,7 @@
 ---
 include:
   - board: le_chiff_ble
-    shield: nice_view_adapter nice_epaper
+    shield: nice_view_adapter nice_view
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: le_chiff_ble

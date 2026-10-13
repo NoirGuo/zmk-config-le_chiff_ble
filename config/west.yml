@@ -14,8 +14,6 @@ manifest:
       url-base: https://github.com/tokyo2006
     - name: englmaxi
       url-base: https://github.com/englmaxi
-    - name: mctechnology17
-      url-base: https://github.com/mctechnology17
     - name: prospector
       url-base: https://github.com/NoirGuo
   projects:
@@ -49,10 +47,8 @@ manifest:
           - edtt
           - trusted-firmware-m
           - chre
-    # nice_epaper / nice_view 旧式外置模块（nice_epaper 不在 ZMK 树内，需此模块提供）
-    - name: zmk-nice-oled
-      remote: mctechnology17
-      revision: main
+    # 显示：ZMK main 树内官方 shield nice_view（sharp,ls0xx 160x68）。
+    # 不再使用 LVGL8 时代的 zmk-nice-oled 外置模块（其 C 代码与 ZMK main 的 LVGL9 不兼容）
     - name: zmk-feature-custom-settings
       remote: cormoran
       revision: main

@@ -29,11 +29,20 @@ USB 连接电脑后，DYA Studio 通过串口（`studio-rpc-usb-uart` snippet）
 - 移除了 keymap 中的 `scroll_encoder` 行为与 `sensor-bindings`；
 - 移除了 `le_chiff_ble.json` 中的 sensors 段。
 
+## 显示（Display）
+
+本键盘的显示为 sharp,ls0xx（160x68）内存屏（旧称 `nice_epaper`，与 ZMK 官方
+`nice_view` 屏同硬件）。新栈（ZMK main + LVGL9）下改用 **ZMK 树内官方 shield**
+`nice_view_adapter` + `nice_view`（`zmk-nice-oled` 外置模块为 LVGL8 时代代码，
+其 C 源码与 LVGL9 不兼容，已从 west.yml 移除）。显示相关配置由
+`nice_view` 官方 conf 开启，板级 conf 不再设置 `CONFIG_ZMK_DISPLAY`，
+避免 `settings_reset` 等无显示构建编译 LVGL 时报错。
+
 ## 自定义主控（Custom Board）
 
 本分支主控为自定义 PCB，以经典 Zephyr board 形式定义在
 `boards/arm/le_chiff_ble/`（不是 shield），`build.yaml` 中使用
-`board: le_chiff_ble`，并叠加 `nice_view_adapter` + `nice_epaper` 两个 shield。
+`board: le_chiff_ble`，并叠加 `nice_view_adapter` + `nice_view` 两个 shield。
 
 升级到 Zephyr 4.x 新栈时，板目录已按官方规范迁移：
 
@@ -54,7 +63,7 @@ DYA 生态（cormoran/zephyr）**没有 Zephyr 4.0 分支**，实际可用的新
 ## 构建
 
 ```bash
-west build -p -b le_chiff_ble -- -DSHIELD="nice_view_adapter nice_epaper" -DCONFIG_ZMK_STUDIO=y
+west build -p -b le_chiff_ble -- -DSHIELD="nice_view_adapter nice_view" -DCONFIG_ZMK_STUDIO=y
 ```
 
 或直接在 GitHub Actions 中构建（`.github/workflows/build.yml` 调用
