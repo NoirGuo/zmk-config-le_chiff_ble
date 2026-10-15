@@ -11,6 +11,7 @@
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <behaviors/runtime-sensor-rotate.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -93,12 +94,24 @@
             flavor = "tap-preferred";
         };
 
-        scroll_encoder: scroll_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
+        /*
+         * Runtime sensor rotate 实例（DYA Studio 可在线改写 cw/ccw）。
+         * cw/ccw-binding 仅作为 runtime 未配置时的 fallback 默认值。
+         */
+        rsr_vol: rsr_vol {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <5>;
+            cw-binding = <&kp C_VOL_UP>;
+            ccw-binding = <&kp C_VOL_DN>;
+        };
 
-            tap-ms = <100>;
+        rsr_scroll: rsr_scroll {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <5>;
+            cw-binding = <&msc SCRL_UP>;
+            ccw-binding = <&msc SCRL_DOWN>;
         };
     };
 
@@ -114,7 +127,7 @@
               &kp LGUI  &lt 1 SPACE  &none  &none  &lt 2 SPACE  &kp BACKSPACE  &MIMA
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&rsr_vol>;
         };
 
         layer_1 {
@@ -125,7 +138,7 @@
                 &trans  &trans  &trans  &trans    &trans    &trans     &trans
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&rsr_scroll>;
         };
 
         layer_2 {
@@ -135,6 +148,8 @@
 &trans    &trans    &trans     &bootloader  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &trans
                     &trans     &trans       &trans      &trans        &trans        &trans        &trans
             >;
+
+            sensor-bindings = <&rsr_vol>;
         };
 
         layer_3 {
@@ -144,6 +159,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&rsr_vol>;
         };
 
         layer_4 {
@@ -153,6 +170,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&rsr_vol>;
         };
     };
 };
